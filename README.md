@@ -1,2 +1,4 @@
 # RL_for_Gymnasium_Env
-新手入门强化学习编写的代码，环境为openai的gymnasium
+新手入门强化学习，环境为openai gymnasium
+# Classic Control
+Acrobot -- DQN方法
