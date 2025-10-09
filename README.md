@@ -1,0 +1,2 @@
+# RL_for_Gymnasium_Env
+新手入门强化学习编写的代码，环境为openai的gymnasium
