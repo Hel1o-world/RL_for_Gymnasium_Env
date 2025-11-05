@@ -5,3 +5,5 @@
 1.1 Acrobot -- DQN方法
 
 1.2 CartPole --DQN
+
+1.5 Pendulum --PPO-clip
