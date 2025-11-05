@@ -64,9 +64,9 @@ class PPO:
         return action.cpu().numpy(), log_prob
 
     def update(self, train_dataset):
-        for epoch in range(self.epochs):
+        for epoch in range(self.epochs):#每个训练集训练多少次
             data_loader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True)
-            for _, (obs, action, old_log_prob, advantage, value_target) in enumerate(data_loader):
+            for _, (obs, action, old_log_prob, advantage, value_target) in enumerate(data_loader):#从数据集中采样进行批量梯度下降
                 mu = self.actor(obs)
                 dist = torch.distributions.Normal(mu, self.sigma)
                 new_log_prob = dist.log_prob(action) #计算新的动作概率
@@ -75,7 +75,7 @@ class PPO:
                 l_value = self.weight_v * F.mse_loss(self.critic(obs).squeeze(), value_target)
 
                 self.actor_optimizer.zero_grad()
-                l_clip.backward(retain_graph=True)
+                l_clip.backward()
                 self.actor_optimizer.step()
 
                 self.critic_optimizer.zero_grad()
